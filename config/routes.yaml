@@ -1,0 +1,10 @@
+authentication_token:
+  path: /api/authentication_token
+  methods: ['POST']
+refresh_token:
+  path: /api/authentication_refresh_token
+  methods: ['POST']
+  #controller: gesdinet.jwtrefreshtoken::refresh
+swagger_ui:
+  path: /docs
+  controller: api_platform.swagger_ui.action

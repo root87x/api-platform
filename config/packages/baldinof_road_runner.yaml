@@ -1,0 +1,19 @@
+baldinof_road_runner:
+  # When the kernel should be rebooted.
+  # See https://github.com/baldinof/roadrunner-bundle#kernel-reboots
+  kernel_reboot:
+    strategy: max_jobs
+    max_jobs: 1000
+    max_jobs_dispersion: 0.2
+
+  # Allow to send prometheus metrics to the main RoadRunner process,
+  # via a `Spiral\RoadRunner\MetricsInterface` service.
+  # See https://github.com/baldinof/roadrunner-bundle#metrics
+  metrics:
+    enabled: false
+
+
+  # You can use middlewares to manipulate Symfony requests & responses.
+  # See https://github.com/baldinof/roadrunner-bundle#middlewares
+  # middlewares:
+  #     - App\Middleware\YourMiddleware

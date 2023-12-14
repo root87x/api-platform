@@ -1,0 +1,36 @@
+api_platform:
+    http_cache:
+        invalidation:
+            enabled: true
+            varnish_urls: ['%env(VARNISH_URL)%']
+        public: true
+    defaults:
+        cache_headers:
+            max_age: 30
+            shared_max_age: 60
+            vary: [ 'Content-Type', 'Authorization', 'Origin' ]
+        pagination_partial: true
+        pagination_client_partial: true
+        pagination_client_enabled: true
+        pagination_client_items_per_page: true
+        pagination_maximum_items_per_page: 60
+        normalization_context:
+            skip_null_values: true
+    enable_re_doc: false
+    mapping:
+        paths: [
+            '%kernel.project_dir%/src/Entity',
+        ]
+    patch_formats:
+        json: ['application/merge-patch+json']
+    collection:
+        pagination:
+            items_per_page_parameter_name: 'items_per_page'
+            partial_parameter_name: 'partial'
+            enabled_parameter_name: pagination
+    swagger:
+        api_keys:
+            JWT:
+                name: Authorization
+                type: header
+        versions: [3]
